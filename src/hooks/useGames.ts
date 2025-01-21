@@ -3,6 +3,7 @@ import fetchApiClient from "@/hooks/useData";
 import { CanceledError } from "axios";
 import { useState, useEffect } from "react";
 import { Genre } from "./useGenres";
+import useFetchData from "@/hooks/useData";
 
 export interface Game {
 	id: number;
@@ -18,13 +19,8 @@ export interface Platform {
 	slug: string;
 }
 
-interface FetchGamesResponse {
-	count: number;
-	results: Game[];
-}
-
 const useGames = (selectedGenre: Genre | null) =>
-	fetchApiClient<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+	useFetchData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
 		selectedGenre?.id,
 	]);
 

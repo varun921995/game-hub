@@ -1,7 +1,5 @@
-import apiClient from "@/services/api-client";
+import useFetchData from "@/hooks/useData";
 import fetchApiClient from "@/hooks/useData";
-import { CanceledError } from "axios";
-import { useEffect, useState } from "react";
 
 export interface Genre {
 	id: number;
@@ -9,11 +7,6 @@ export interface Genre {
 	image_background: string;
 }
 
-interface FetchGenreResponse {
-	count: number;
-	results: Genre[];
-}
-
-const useGenres = () => fetchApiClient<Genre>("/genres");
+const useGenres = () => useFetchData<Genre>("/genres");
 
 export default useGenres;
