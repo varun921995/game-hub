@@ -1,11 +1,10 @@
 import useFetchData from "./useData";
 
-interface PlatformResponse {
+export interface Platforms {
 	id: number;
 	name: string;
 }
 
-const usePlatforms = () =>
-	useFetchData<PlatformResponse>("/platforms/lists/parents");
+const usePlatforms = () => useFetchData<Platforms>("/platforms/lists/parents");
 
 export default usePlatforms;

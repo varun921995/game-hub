@@ -4,10 +4,11 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { Genre } from "@/hooks/useGenres";
+import { Platforms } from "@/hooks/usePlatforms";
 
 interface Props {
 	selectedGenre: Genre | null;
-	selectedPlatform: number | null;
+	selectedPlatform: Platforms | null;
 }
 
 const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {

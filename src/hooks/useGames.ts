@@ -1,10 +1,6 @@
-import apiClient from "@/services/api-client";
-import fetchApiClient from "@/hooks/useData";
-import { CanceledError } from "axios";
-import { useState, useEffect } from "react";
 import { Genre } from "./useGenres";
 import useFetchData from "@/hooks/useData";
-
+import { Platforms } from "@/hooks/usePlatforms";
 export interface Game {
 	id: number;
 	name: string;
@@ -21,14 +17,17 @@ export interface Platform {
 
 const useGames = (
 	selectedGenre: Genre | null,
-	selectedPlatform: number | null,
+	selectedPlatform: Platforms | null,
 ) =>
 	useFetchData<Game>(
 		"/games",
 		{
-			params: { genres: selectedGenre?.id, parent_platforms: selectedPlatform },
+			params: {
+				genres: selectedGenre?.id,
+				parent_platforms: selectedPlatform?.id,
+			},
 		},
-		[selectedGenre?.id, selectedPlatform],
+		[selectedGenre?.id, selectedPlatform?.id],
 	);
 
 export default useGames;
