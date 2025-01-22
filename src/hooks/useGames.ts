@@ -19,9 +19,16 @@ export interface Platform {
 	slug: string;
 }
 
-const useGames = (selectedGenre: Genre | null) =>
-	useFetchData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
-		selectedGenre?.id,
-	]);
+const useGames = (
+	selectedGenre: Genre | null,
+	selectedPlatform: number | null,
+) =>
+	useFetchData<Game>(
+		"/games",
+		{
+			params: { genres: selectedGenre?.id, parent_platforms: selectedPlatform },
+		},
+		[selectedGenre?.id, selectedPlatform],
+	);
 
 export default useGames;
