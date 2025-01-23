@@ -1,3 +1,4 @@
+import { GameQuery } from "@/App";
 import { Platforms } from "@/hooks/usePlatforms";
 import usePlatforms from "@/hooks/usePlatforms";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
@@ -17,7 +18,9 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 		<div>
 			<Menu>
 				<MenuButton as={Button} rightIcon={<BsChevronDown />} marginX={5}>
-					{selectedPlatform !== null ? selectedPlatform.name : "Platforms"}
+					{selectedPlatform !== undefined
+						? selectedPlatform?.name
+						: "Platforms"}
 				</MenuButton>
 				<MenuList>
 					{data.map((platform) => (
