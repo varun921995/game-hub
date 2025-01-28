@@ -8,6 +8,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platforms } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 const API_BASE_URL = await import.meta.env.VITE_RAWG_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export interface GameQuery {
 	genre: Genre | null;
@@ -18,7 +19,7 @@ export interface GameQuery {
 function App() {
 	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
-	console.log(API_BASE_URL);
+	console.log(import.meta.env);
 
 	return (
 		<Grid
