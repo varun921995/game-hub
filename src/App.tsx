@@ -16,9 +16,6 @@ export interface GameQuery {
 
 function App() {
 	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-
-	console.log(import.meta.env);
-
 	return (
 		<Grid
 			templateAreas={{
