@@ -2,13 +2,17 @@ import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 
-const SearchField = () => {
+interface Props {
+	searchValue: (search: string) => void;
+}
+
+const SearchField = ({ searchValue }: Props) => {
 	const searchInput = useRef<HTMLInputElement>(null);
 	return (
 		<form
 			onSubmit={(e) => {
 				e.preventDefault();
-				console.log(searchInput.current?.value);
+				searchValue(searchInput.current?.value as string);
 			}}>
 			<InputGroup>
 				<InputLeftElement>

@@ -21,6 +21,7 @@ const useFetchData = <T>(
 			const controller = new AbortController();
 
 			setLoading(true);
+			console.log(requestConfig);
 			apiClient
 				.get<FetchResponse<T>>(endpoint, {
 					signal: controller.signal,
