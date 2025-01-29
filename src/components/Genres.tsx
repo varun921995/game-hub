@@ -10,7 +10,6 @@ import {
 	Button,
 	Heading,
 } from "@chakra-ui/react";
-import React from "react";
 
 interface Props {
 	onSelectGenre: (genre: Genre) => void;
