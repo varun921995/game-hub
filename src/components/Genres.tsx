@@ -8,6 +8,7 @@ import {
 	Text,
 	Spinner,
 	Button,
+	Heading,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -24,6 +25,7 @@ const Genres = ({ onSelectGenre, selectedGenre }: Props) => {
 
 	return (
 		<div>
+			<Heading fontSize={"2xl"}>Genres</Heading>
 			<List>
 				{data.map((genre) => (
 					<ListItem key={genre.id} padding={2}>
@@ -31,12 +33,15 @@ const Genres = ({ onSelectGenre, selectedGenre }: Props) => {
 							<Image
 								boxSize="32px"
 								borderRadius="5px"
+								objectFit={"cover"}
 								src={getCroppedImage(genre.image_background)}></Image>
 							<Button
 								fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
 								variant="link"
 								onClick={() => onSelectGenre(genre)}
-								fontSize="lg">
+								fontSize="lg"
+								whiteSpace={"normal"}
+								textAlign={"left"}>
 								{genre.name}
 							</Button>
 						</HStack>

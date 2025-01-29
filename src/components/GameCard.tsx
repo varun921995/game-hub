@@ -3,6 +3,7 @@ import { Game } from "../hooks/useGames";
 import PlatformIcons from "./PlatformIcons";
 import CriticScore from "./CriticScore";
 import getCroppedImage from "@/services/image-url";
+import { wrap } from "framer-motion";
 
 interface Props {
 	game: Game;
@@ -15,7 +16,7 @@ const GameCard = ({ game }: Props) => {
 				<Image src={getCroppedImage(game.background_image)}></Image>
 				<CardBody>
 					<Heading fontSize="2xl">{game.name}</Heading>
-					<HStack justifyContent="space-between">
+					<HStack justifyContent="space-between" style={{ flexWrap: "wrap" }}>
 						<PlatformIcons
 							platform={game.parent_platforms.map(
 								(p) => p.platform,
