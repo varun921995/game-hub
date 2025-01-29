@@ -1,5 +1,4 @@
-import useFetchData from "@/hooks/useData";
-import fetchApiClient from "@/hooks/useData";
+import Genres from "@/data/genres";
 
 export interface Genre {
 	id: number;
@@ -7,6 +6,6 @@ export interface Genre {
 	image_background: string;
 }
 
-const useGenres = () => useFetchData<Genre>("/genres");
+const useGenres = () => ({ data: Genres, isLoading: false, error: null });
 
 export default useGenres;
