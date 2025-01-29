@@ -14,7 +14,7 @@ const SearchField = ({ searchValue }: Props) => {
 				e.preventDefault();
 				searchValue(searchInput.current?.value as string);
 			}}>
-			<InputGroup>
+			<InputGroup borderRadius="25px">
 				<InputLeftElement>
 					<BsSearch />
 				</InputLeftElement>
