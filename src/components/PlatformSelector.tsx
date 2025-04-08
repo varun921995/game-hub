@@ -5,10 +5,10 @@ import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
-const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const { data, error, isLoading } = usePlatforms();
 
   if (error) return null;
@@ -17,8 +17,8 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
     <div>
       <Menu>
         <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-          {selectedPlatform !== undefined
-            ? selectedPlatform?.name
+          {selectedPlatformId !== undefined
+            ? data.results.find((p) => p.id === selectedPlatformId)?.name
             : "Platforms"}
         </MenuButton>
         <MenuList>
